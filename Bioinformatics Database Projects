@@ -1,0 +1,6 @@
+-- Partitioned table for 50M+ SNP records
+CREATE TABLE dementia_snps (
+  snp_id VARCHAR2(20),
+  chromosome NUMBER,
+  position NUMBER
+) PARTITION BY RANGE (chromosome);
