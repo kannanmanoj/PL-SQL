@@ -1,0 +1,5 @@
+-- Before: Full table scan (8.3s)
+SELECT * FROM transactions WHERE account_id = 100023;
+
+-- After: Created function-based index (0.2s)
+CREATE INDEX idx_trans_account ON transactions(UPPER(account_id));
